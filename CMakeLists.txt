@@ -2,14 +2,26 @@
 cmake_minimum_required(VERSION 3.5)
 
 # Объявление проекта
-project(algorithms C)
+project(algorithms C CXX)
+
+# Проверка доступности тестирования
+if(EXISTS ${CMAKE_CURRENT_LIST_DIR}/googletest)
+   message(STATUS "googletest found in ${CMAKE_CURRENT_LIST_DIR}")
+   enable_testing()
+   add_subdirectory(googletest)
+   set(IS_TESTING_AVAILABLE ON)
+   set(GTEST_INCLUDE "${CMAKE_CURRENT_LIST_DIR}/googletest/googletest/include")
+else()
+   message(STATUS "googletest not found in ${CMAKE_CURRENT_LIST_DIR}")
+   set(IS_TESTING_AVAILABLE OFF)
+endif()
 
 # Тип сборки по умолчанию
 if (NOT CMAKE_BUILD_TYPE)
    set(CMAKE_BUILD_TYPE "Debug")
 endif()
 
-# OS по умолчанию
+# Определяем OS
 if (WIN32)
    set(TARGET_OS "Windows")
 elseif(UNIX)
@@ -21,6 +33,11 @@ message(STATUS "* ========================== *")
 message(STATUS "| Buid type: ${CMAKE_BUILD_TYPE}")
 message(STATUS "| Target OS: ${TARGET_OS}")
 message(STATUS "| Generator: ${CMAKE_GENERATOR}")
+if (IS_TESTING_AVAILABLE)
+   message(STATUS "| Testing  : Available")
+else()
+   message(STATUS "| Testing  : Not Available")
+endif()
 message(STATUS "* ========================== *")
 
 # Выходные директории
@@ -38,4 +55,3 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY_RELEASE ${OUTPUT_RELEASE_DIR}/bin)
 # Подключаем проекты
 #add_subdirectory(algorithms)
 #add_subdirectory(data_structures)
-#add_subdirectory(tests)
