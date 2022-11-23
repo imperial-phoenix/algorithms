@@ -52,6 +52,9 @@ set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY_RELEASE ${OUTPUT_RELEASE_DIR}/lib)
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY_RELEASE ${OUTPUT_RELEASE_DIR}/lib)
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY_RELEASE ${OUTPUT_RELEASE_DIR}/bin)
 
+# Общие заголовочные файлы
+set(SHARED_INCLUDE ${CMAKE_CURRENT_LIST_DIR})
+
 # Подключаем проекты
 #add_subdirectory(algorithms)
 #add_subdirectory(data_structures)
