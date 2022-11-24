@@ -1,4 +1,7 @@
 # algorithms and data structures
 
 ## git submodules
-git submodules update --init --recursive
+git submodule update --init --recursive
+
+## coding style
+Files are named with uppercase
