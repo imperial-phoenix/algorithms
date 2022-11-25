@@ -57,4 +57,4 @@ set(SHARED_INCLUDE ${CMAKE_CURRENT_LIST_DIR})
 
 # Подключаем проекты
 #add_subdirectory(Algorithms)
-#add_subdirectory(DataStructures)
+add_subdirectory(DataStructures)
