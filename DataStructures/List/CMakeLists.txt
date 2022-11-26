@@ -18,9 +18,9 @@ if (TARGET_OS STREQUAL "Linux")
 endif()
 
 # Добавляем тесты
-if(IS_TESTING_AVAILABLE)
+if(IS_GOOGLETEST_FOUND)
    add_executable(${TARGET_NAME}Tests ListTests.cpp)
-   target_include_directories(${TARGET_NAME}Tests PRIVATE ${SHARED_INCLUDE_DIR})
+   target_include_directories(${TARGET_NAME}Tests PRIVATE ${SHARED_INCLUDE_DIR} ${GTEST_INCLUDE_DIR})
    target_link_libraries(${TARGET_NAME}Tests PRIVATE gtest gtest_main ${TARGET_NAME})
    add_test(NAME List_tests WORKING_DIRECTORY ${OUTPUT_DEBUG_DIR}/bin COMMAND ${TARGET_NAME}Tests)
 endif()
