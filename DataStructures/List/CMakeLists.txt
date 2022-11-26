@@ -10,7 +10,7 @@ set(SOURCES_LIST
 
 # Сборка библиотеки
 add_library(${TARGET_NAME} ${HEADERS_LIST} ${SOURCES_LIST})
-target_include_directories(${TARGET_NAME} PUBLIC ${SHARED_INCLUDE})
+target_include_directories(${TARGET_NAME} PUBLIC ${SHARED_INCLUDE_DIR})
 
 # Флаги для gcc
 if (TARGET_OS STREQUAL "Linux")
@@ -20,7 +20,9 @@ endif()
 # Добавляем тесты
 if(IS_TESTING_AVAILABLE)
    add_executable(${TARGET_NAME}Tests ListTests.cpp)
-   target_include_directories(${TARGET_NAME}Tests PRIVATE ${SHARED_INCLUDE})
+   target_include_directories(${TARGET_NAME}Tests PRIVATE ${SHARED_INCLUDE_DIR})
    target_link_libraries(${TARGET_NAME}Tests PRIVATE gtest gtest_main ${TARGET_NAME})
    add_test(NAME List_tests WORKING_DIRECTORY ${OUTPUT_DEBUG_DIR}/bin COMMAND ${TARGET_NAME}Tests)
 endif()
+
+set(TARGET_LIST ${TARGET_LIST} ${TARGET_NAME} PARENT_SCOPE)
