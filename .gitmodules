@@ -1,7 +1,6 @@
-[submodule "googletest"]
+[submodule "Modules/googletest"]
 	path = Modules/googletest
 	url = https://github.com/google/googletest
-
-[submodule "pvs-studio-cmake-module"]
+[submodule "Modules/pvs-studio-cmake-module"]
 	path = Modules/pvs-studio-cmake-module
-	url = https://github.com/viva64/pvs-studio-cmake-module.git
+	url = https://github.com/viva64/pvs-studio-cmake-module

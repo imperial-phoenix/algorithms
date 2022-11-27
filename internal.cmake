@@ -57,7 +57,7 @@ function(is_pvs_studio_available PATH_TO_SUBMODULES)
       set(IS_PVS_STUDIO_FOUND ON)
    endif()
 
-   if (IS_PVS_STUDIO_FOUND AND EXISTS ${PATH_TO_SUBMODULES}/pvs-studio-cmake-module)
+   if (IS_PVS_STUDIO_FOUND AND EXISTS ${PATH_TO_SUBMODULES}/pvs-studio-cmake-module/PVS-Studio.cmake)
       message(STATUS "pvs-studio-cmake-module is found in ${PATH_TO_SUBMODULES}")
       set(IS_PVS_STUDIO_FOUND ON PARENT_SCOPE)
    else()
@@ -72,7 +72,7 @@ endfunction()
 # IS_GOOGLETEST_FOUND[OUT] - статус доступности googletest
 # GTEST_INCLUDE_DIR[OUT] - директории заголовочных файлов googletest
 function(is_googletest_available PATH_TO_SUBMODULES)
-   if(EXISTS ${PATH_TO_SUBMODULES}/googletest)
+   if(EXISTS ${PATH_TO_SUBMODULES}/googletest/googletest/CMakeLists.txt)
       message(STATUS "googletest is found in ${PATH_TO_SUBMODULES}")
       add_subdirectory(${PATH_TO_SUBMODULES}/googletest)
       set(GTEST_INCLUDE_DIR "${PATH_TO_SUBMODULES}/googletest/googletest/include" PARENT_SCOPE)
