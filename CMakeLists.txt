@@ -8,14 +8,14 @@ project(algorithms C CXX)
 include(internal.cmake)
 
 # Проверка доступности googletest
-is_googletest_available()
+is_googletest_available(${CMAKE_CURRENT_LIST_DIR}/Modules)
 
 if(IS_GOOGLETEST_FOUND)
    enable_testing()
 endif()
 
 # Проверка доступности pvs-studio
-is_pvs_studio_available()
+is_pvs_studio_available(${CMAKE_CURRENT_LIST_DIR}/Modules)
 
 # Тип сборки по умолчанию
 if (NOT CMAKE_BUILD_TYPE)

@@ -9,7 +9,7 @@ add_subdirectory(DataStructures)
 
 # Подключаем статический анализатор pvs-studio
 if(IS_PVS_STUDIO_FOUND)
-   include(../pvs-studio-cmake-module/PVS-Studio.cmake)
+   include(${PROJECT_PATH}/Modules/pvs-studio-cmake-module/PVS-Studio.cmake)
 
    add_custom_target(
       RmPvsLog
